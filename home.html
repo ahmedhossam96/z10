@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Z10</title>
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Updated Navbar Styles */
+        .navbar {
+            background: linear-gradient(90deg, #e7e2e2 0%, #eeeded 100%);
+            /* Gradient background */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            /* Reduced height */
+            display: flex;
+            justify-content: baseline;
+            align-items: center;
+            /* Center vertically */
+            padding: 10px 20px;
+            /* Reduced padding */
+            z-index: 2;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+
+        .navbar a {
+            color: black;
+            text-decoration: double;
+            font-size: 16px;
+            font-weight: 900;
+            padding: 4px 6px;
+            /* Reduced padding */
+            margin: 0 4px;
+            /* Reduced margin */
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            /* Smooth transitions */
+        }
+
+        .navbar a:hover {
+
+            opacity: 0.7;
+            /* Change text color on hover */
+        }
+
+        .logo {
+            max-height: 65px;
+            /* Reduced logo height */
+            margin-right: 20px;
+            transition: transform 0.3s;
+            /* Add a transform animation */
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            /* Enlarge the logo on hover */
+        }
+
+
+
+        .button {
+
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+
+            margin-left: 6%;
+            height: 80px;
+            background-color: #000;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            line-height: 60px;
+        }
+
+        .button:hover {
+            opacity: 0.7;
+        }
+
+
+
+        /* Social Media Styles 
+        .social-media {
+            display: flex;
+            align-items: center;
+            color: rgba(10, 9, 9, 0);
+
+
+        }
+
+        .social-link {
+            color: rgba(10, 9, 9, 0);
+            text-decoration: none;
+            font-size: 24px;
+            border-radius: 5px;
+            width: 40px;
+            height: 60px;
+            
+            margin-right: 10px;
+            
+
+        }
+        */
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+
+        /* Video background */
+        #video-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            /* Semi-transparent black background */
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .big-text {
+            font-size: 36px;
+            /* Adjust the font size */
+            font-weight: bold;
+            /* Make the text thicker */
+            color: white;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        /* Grid styles */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-item {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .grid-item:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .grid-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .grid-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Updated CSS for Second Section */
+        .section2 {
+            background-color: #f7f7f7;
+        }
+
+        .grid-item2 {
+
+            width: 100%;
+            height: auto;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .grid-content2 {
+            display: flex;
+            align-items: center;
+            /* Vertically center the content */
+            justify-content: space-around;
+            /* Horizontally distribute the content */
+            gap: 20px;
+            /* Adjust the gap between items */
+        }
+
+        .grid-image2 {
+            width: 50%;
+            /* Adjust the width of the image as needed */
+            height: min-content;
+        }
+
+        .thegif {
+            padding: auto;
+            max-width: 20%;
+            /* Adjust the width of the image as needed */
+            height: auto;
+        }
+
+
+
+        .grid-content p {
+            flex: 1;
+            /* Allow the paragraph to expand and fill available space */
+        }
+
+
+        /* Third Section Styles */
+        .section3 {
+            background-color: #fff;
+        }
+
+        /* Video Container for YouTube Video */
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio for the video container */
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #000;
+            /* Dark black background color */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            /* Adjust spacing between columns */
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin: 10px;
+            text-align: left;
+            background-color: #111;
+            /* Darker background for columns */
+            padding: 20px;
+            /* Increase padding for spacing within columns */
+            border-radius: 5px;
+            /* Add rounded corners to columns */
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-column ul,
+        .footer-column p,
+        .footer-column address {
+            font-size: 16px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #fff;
+        }
+
+        .footer-column a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Divider Line */
+        .divider-line {
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 1px;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                width: 80%;
+                text-align: center;
+            }
+        }
+
+
+
+
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 4px;
+            }
+
+            .navbar a {
+                padding: 8px 15px;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+                /* Single column on small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+
+        <img src="img/z.10.jpg" alt="Logo" class="logo">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+
+        <!-- Left Side: Social Media Buttons -->
+        <div class="social-media">
+
+            <i style="margin-left: 420px;" class="fa fa-facebook-f"></i>
+            <i style="margin-left: 20px;" class="fa fa-instagram"></i>
+            <i style="margin-left: 10px;" class="fa fa-youtube"></i>
+
+
+
+        </div>
+
+        <!-- Right Side: Custom Button -->
+        <button class="button">Try your first class now</button>
+    </div>
+
+    <div id="video-container">
+
+
+        <video autoplay loop muted>
+            <source src="zbx.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="text-overlay">
+            <h1 class="big-text">UNLEASH YOUR INNER FIGHTER</h1>
+        </div>
+    </div>
+
+    <!-- First Section -->
+    <div class="section">
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="img/trY.jpg" alt="Image 1" class="grid-image">
+                <h3>Kids class</h3>
+
+                <a href="#" class="grid-button">Learn More</a>
+            </div>
+            <div class="grid-item">
+                <img src="img/zu.jpg" alt="Image 2" class="grid-image">
+                <h3>training programes </h3>
+
+                <a href="#" class="grid-button">Learn More</a>
+            </div>
+            <div class="grid-item">
+                <img src="img/scZ.jpg" alt="Image 3" class="grid-image">
+                <h3>scheduale </h3>
+
+                <a href="#" class="grid-button">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="section2">
+
+        <div class="grid-item2">
+            <div class="grid-content2">
+                <img src="img/zika.jpg" alt="Image 4" class="grid-image2">
+                <p style="font-weight: 900; font-size: 26px;">
+
+                    <img src="gy.webp" alt="Image f" class="thegif">
+                    <br><br>
+                    Boxing
+                    offers both kids and adults a unique opportunity to build not just
+                    boxing skills<br> but also
+                    their bodies and character. It's a journey of building resilience, determination, <br>and physical
+                    strength, all while sculpting your physique into the best version of yourself.<br> So, whether
+                    you're a
+                    child or an adult, remember that with every punch and every training session, you are building
+                    a
+                    better you.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Third Section -->
+    <div class=" section section3">
+        <h2>Watch Our Video</h2>
+        <div class="video-container">
+            <!-- Replace the iframe source with your YouTube video embed code -->
+            <iframe src="https://www.youtube.com/embed/sUWo9q2pEV4?si=kbisuU2N5gGwmrIO" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-container">
+            <!-- Social Media Column -->
+            <div class="footer-column">
+                <h4>Social Media</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+
+            <!-- Links Column -->
+            <div class="footer-column">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Working Hours Column -->
+            <div class="footer-column">
+                <h4>Working Hours</h4>
+                <p>Monday-Friday: 9:00 AM - 5:00 PM</p>
+                <p>Saturday: 10:00 AM - 2:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+
+            <!-- Address Column -->
+            <div class="footer-column">
+                <h4>Address</h4>
+                <address>
+                    123 Main Street<br>
+                    City, State ZIP Code<br>
+                    Country
+                </address>
+            </div>
+        </div>
+        <p>&copy; Copyright 2023 Z10 All rights reserved </p>
+    </div>
+
+
+    <script>
+        // You can add JavaScript code here if needed
+    </script>
+</body>
+
+</html>
