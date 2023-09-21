@@ -357,7 +357,13 @@
         }
 
 
-
+        /* Media Query for Mobile Screens */
+        @media screen and (max-width: 768px) {
+            .grid-item {
+                flex: 0 0 calc(100% - 20px);
+                /* Full width with spacing between items */
+            }
+        }
 
 
         /* Responsive Styles */
@@ -444,7 +450,7 @@
         <div class="grid-item2">
             <div class="grid-content2">
                 <img src="img/zika.jpg" alt="Image 4" class="grid-image2">
-                <p style="font-weight: 900; font-size: 26px;">
+                <p style="font-weight: 900; font-size: 24px;">
 
                     <img src="img/gy.webp" alt="Image f" class="thegif">
                     <br><br>
